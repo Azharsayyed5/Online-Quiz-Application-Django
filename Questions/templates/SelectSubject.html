@@ -1,0 +1,44 @@
+{% extends 'master.html'%}
+
+{%block content%}
+      <form method="post" action="/Questions/PlayQuiz/">
+        {% csrf_token %}
+<table class="table">
+  <tr>
+    {% for images in img|slice:":3"%}
+    <td>
+      <a href="#"><img src="{{images.imagex.url}}" alt="langauges" height="100px"></a>
+    </td>
+    {%endfor%}
+  </tr>
+        <tr>
+{% for sub in subjects|slice:":3" %}
+    <td>
+  <input type="radio" name="subid" value='{{sub.id}}'>{{sub.SName}}
+</td>
+
+{% endfor %}
+</tr>
+<tr>
+    {% for images in img|slice:"3:6"%}
+    <td>
+      <a href="#"><img src="{{images.imagex.url}}" alt="langauges" height="100px"></a>
+    </td>
+    {%endfor%}
+  </tr>
+        <tr>
+{% for sub in subjects|slice:"3:6" %}
+    <td>
+  <input type="radio" name="subid" value='{{sub.id}}'>{{sub.SName}}
+</td>
+
+{% endfor %}
+</tr>
+<tr>
+<td colspan='3'>
+        <button type="submit" class="btn">Start Quiz</button>
+</td>
+</tr>
+</table>
+</form>
+{% endblock %}

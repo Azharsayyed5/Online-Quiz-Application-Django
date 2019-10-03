@@ -1,0 +1,25 @@
+{% extends 'master.html'%}
+
+{%block content%}
+<form method="Post">
+        {% csrf_token %} 
+<table class="table">
+    
+    <tr>
+       
+        <td>{{question.QName}}</td>
+        <td><input type="radio" value="{{question.option1}}" name="{{question.id}}">{{question.option1}}</td>
+        <td><input type="radio" value="{{question.option2}}" name="{{question.id}}">{{question.option2}}</td>
+        <td><input type="radio" value="{{question.option3}}" name="{{question.id}}">{{question.option3}}</td>
+        <td><input type="radio" value="{{question.option4}}" name="{{question.id}}">{{question.option4}}</td>
+        
+    </tr>
+    <tr>
+        <td><button class="button" type="submit">Next Question</button></td>
+        <td colspan="4"></td>
+    </tr>
+  
+    
+</table>
+</form>
+{% endblock %}
